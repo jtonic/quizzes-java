@@ -9,41 +9,38 @@ import java.util.List;
 public class GenericsIssuesMain {
 
     public static void main(String[] args) {
-        canNotUseInstanceOf();
-        canNotCreateAnInstanceOfGeneric("a");
-        canNotCreateAnArrayOfGenerifiedList();
-        canNotUseGenericTypeLiteral("A", "B");
+        useInstanceOf();
+        createAnInstanceOfGeneric("a");
+        createAnArrayOfGenerifiedList();
+        useGenericTypeLiteral("A", "B");
     }
 
-    private static void canNotCreateAnArrayOfGenerifiedList() {
-/*      Uncomment here to see the compilation issue caused by erasure
-        List<String>[] lst1 = {Arrays.asList("a", "b"), Arrays.asList("1", "2")};
-*/
-        String[] lst2 = {"a", "b"};
-    }
-
-    private static <T> void canNotCreateAnInstanceOfGeneric(T t) {
-/*      Uncomment here to see the compilation issue caused by erasure
-        T a = new T();
-*/
-    }
-
-    private static void canNotUseInstanceOf() {
+    private static void useInstanceOf() {
         List<String> strs = new ArrayList<>();
-/*      Uncomment here to see the compilation issue caused by erasure
+        // 1. Uncomment here!!!
+/*
         if (strs instanceof List<String>) {
-            // code here
+            System.out.println("Good");
         }
 */
     }
 
-    private static <E> void canNotUseGenericTypeLiteral(E e, String str) {
-/*      Uncomment here to see the compilation issue caused by erasure
-        final Class<E> eClass = E.class;
+    private static void createAnArrayOfGenerifiedList() {
+        // 2. Uncomment here!!!
+/*
+        List<String>[] lst = {Arrays.asList("a", "b"), Arrays.asList("1", "2")};
+        System.out.println("lst = " + lst);
 */
-        final Class<String> stringClass = String.class;
-        final int fieldsNo = stringClass.getFields().length;
-        System.out.println("fieldsNo = " + fieldsNo);
+    }
+
+    private static <T> void createAnInstanceOfGeneric(T t) {
+        // 3. Uncomment here!!!
+        // T a = new T();
+    }
+
+    private static <E> void useGenericTypeLiteral(E e, String str) {
+        // 4. Uncomment here!!!
+        // final Class<E> eClass = E.class;
     }
 
 }
