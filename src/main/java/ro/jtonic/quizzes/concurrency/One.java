@@ -1,6 +1,6 @@
-package ro.jtonic.quizzes.generics;
+package ro.jtonic.quizzes.concurrency;
 
-public class ThreadCreationMain {
+public class One {
 
     public static void main(String[] args) throws InterruptedException {
         Thread th = new Thread(new Runnable() {
@@ -11,7 +11,7 @@ public class ThreadCreationMain {
         });
         th.start();
         System.out.println("Running in main thread " + Thread.currentThread().getName());
-        th.join(200); // the current thread (main) is waiting for completion of thread th
+        // write the code to block the current thread and wait maximum 200 msec for the execution of th.
     }
 
 }

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by jtonic on 17.04.2014.
  */
-public class GenericsIssuesMain {
+public class One {
 
     public static void main(String[] args) {
         useInstanceOf();
