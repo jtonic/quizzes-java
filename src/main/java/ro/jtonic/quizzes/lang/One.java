@@ -30,9 +30,11 @@ public class One {
         String s2 = "java";
         String s3 = new String("java");
         String s4 = new StringBuffer("java").append("").toString();
+        String s5 = s3.intern();
 
         System.out.printf("s1 == s2 %s\n", s1 == s2);
         System.out.printf("s1 == s3 %s\n", s1 == s3);
         System.out.printf("s1 == s4 %s\n", s1 == s4);
+        System.out.printf("s1 == s5 %s\n", s1 == s5);
     }
 }
